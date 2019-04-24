@@ -27,7 +27,7 @@ root folder
 ```
 2. Align the faces using MTCNN or dllib. Please use the scripts available in lib/src/align. For this project i aligned faces using MTCNN.
 
-[Before alignment]<img src="https://github.com/cindyloo/rockstar-ai/server/static/humans/spock/spock_539.jpg"  width="250" height="250" />    [After alignment] <img src="https://github.com/cindyloo/rockstar-ai/server/static/humans_mtcnn/spock/spock_539.jpg"  width="250" height="250" /> 
+[Before alignment]<img src="https://github.com/cindyloo/rockstar-ai/lib/data/humans/spock/human_spock_539.jpg"  width="250" height="250" />    [After alignment] <img src="https://github.com/cindyloo/rockstar-ai/lib/data/humans_mtcnn/spock/human_spock_539.jpg"  width="250" height="250" /> 
 
 3. Download [pre-trained-weight](https://drive.google.com/open?id=1R77HmFADxe87GmoLwzfgMu_HY0IhcyBz) ,extract and keep it in lib/src/ckpt folder (for detailed info about availabe weights: [available-weights](https://github.com/davidsandberg/facenet#pre-trained-models)) 
 4. Create face/feature embeddings using pre-trained facenet model. Run the below scripts by changing the folder paths.(edit paths in [lines](https://github.com/cindybishop/rockstar-ai/lib/src/create-feature-embeddings.py))
@@ -48,3 +48,6 @@ References:
 * Deepface paper https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf
 * Facenet paper https://arxiv.org/pdf/1503.03832.pdf
 * Pre-trained facenet model https://github.com/davidsandberg/facenet
+
+Additional notes:
+We will be pairing more humans to rocks and could use your help! Please contact me!
