@@ -12,7 +12,7 @@ This project from MIT's Civic Media serves a few purposes:
 
 A light weight face recognition implementation using a pre-trained facenet model. Most of the code is taken from David Sandberg's  [facenet](https://github.com/davidsandberg/facenet) repository.
 
-## I followed Vinayak Kailas' excellent [tutorial](https://github.com/vinayakkailas/facenet) to utilize David Sandberg's FaceNet 
+## I followed Vinayak Kailas' excellent [tutorial](https://github.com/vinayakkailas/Face_Recognition) to utilize David Sandberg's FaceNet 
 ## Steps to follow:
 1. Create a dataset of faces for each person and arrange them in below order
 ```
