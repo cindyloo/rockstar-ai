@@ -1,5 +1,7 @@
 # RockStar AI
 
+https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/spock_rock.png
+
 This project from MIT's Civic Media serves a few purposes:
 
 1) To provoke discussion and evaluation between human pattern-matching capability to that of machine-learning algorithms regarding facial detection and recognition capabilities.
