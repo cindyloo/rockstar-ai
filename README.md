@@ -45,7 +45,7 @@ python -m align.align_dataset_mtcnn ../data/humans ../data/humans_mtcnn --image_
   python server/rest-server.py
 ```
   access the UI using url https://127.0.0.1:5000. It will a video feed, a Rock It! button and then the results appear. Once you click on it, automatically your primary camera will get turned on and start recognizing the faces.
- 
+ [RockStar AI implementation] <img src="https://github.com/cindyloo/rockstar-ai/blob/master/server.jpg"  width="250" height="250" /> 
  
 References:
 
@@ -55,3 +55,5 @@ References:
 
 Additional notes:
 We will be pairing more humans to rocks and could use your help! Please contact me!
+
+Thanks to Damien Henry at Google Arts for the suggestion to create human-to-rock pairings with which to train the system
