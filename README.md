@@ -10,7 +10,7 @@ This project from MIT's Civic Media serves a few purposes:
 
 A light weight face recognition implementation using a pre-trained facenet model. Most of the code is taken from David Sandberg's  [facenet](https://github.com/davidsandberg/facenet) repository.
 
-## I followed Vinayak Kailas excellent tutorial to utilize David Sandberg's FaceNet 
+## I followed Vinayak Kailas' excellent [tutorial](https://github.com/vinayakkailas/facenet) to utilize David Sandberg's FaceNet 
 ## Steps to follow:
 1. Create a dataset of faces for each person and arrange them in below order
 ```
@@ -25,9 +25,11 @@ root folder
 |   │───IMG2
 |   |   ....
 ```
-2. Align the faces using MTCNN or dllib. Please use the scripts available in lib/src/align. For this project i aligned faces using MTCNN.
+2. Align the faces using MTCNN or dllib. Please use the scripts available in lib/src/align. For this project i aligned faces using MTCNN (eg: 
+python -m align.align_dataset_mtcnn ../data/humans ../data/humans_mtcnn --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25
+). You should default to 160 as FaceNet uses this image size.
 
-[Before alignment]<img src="https://github.com/cindyloo/rockstar-ai/lib/data/humans/spock/human_spock_539.jpg"  width="250" height="250" />    [After alignment] <img src="https://github.com/cindyloo/rockstar-ai/lib/data/humans_mtcnn/spock/human_spock_539.jpg"  width="250" height="250" /> 
+[Before alignment]<img src="https://github.com/cindyloo/rockstar-ai/blob/master/lib/data/humans/spock/human_spock_539.jpg"  width="250" height="250" />    [After alignment] <img src="https://github.com/cindyloo/rockstar-ai/blob/master/lib/data/humans_mtcnn/spock/human_spock_539.jpg"  width="250" height="250" /> 
 
 3. Download [pre-trained-weight](https://drive.google.com/open?id=1R77HmFADxe87GmoLwzfgMu_HY0IhcyBz) ,extract and keep it in lib/src/ckpt folder (for detailed info about availabe weights: [available-weights](https://github.com/davidsandberg/facenet#pre-trained-models)) 
 4. Create face/feature embeddings using pre-trained facenet model. Run the below scripts by changing the folder paths.(edit paths in [lines](https://github.com/cindybishop/rockstar-ai/lib/src/create-feature-embeddings.py))
