@@ -65,7 +65,7 @@ def main(args):
 
             # Get the paths for the corresponding pre-aligned images
             r = []
-            train_path= os.path.join('/Users/cindybishop/Documents/Face_Recognition/lib/data/humans_mtcnn/')
+            train_path= os.path.join('/Users/cindybishop/Documents/rockstar-ai/lib/data/humans_mtcnn/')
             for root, dirs, files in os.walk(train_path):
                 for name in files:
                     if 'png' in name:
@@ -119,7 +119,7 @@ def parse_arguments(argv):
 
     parser.add_argument('--lfw_batch_size', type=int,
                         help='Number of images to process in a batch in the LFW test set.', default=100)
-    parser.add_argument('--model', type=str, default='/Users/cindybishop/Documents/Face_recognition/lib/src/ckpt/20180408-102900.pb',
+    parser.add_argument('--model', type=str, default='/Users/cindybishop/Documents/rockstar-ai/lib/src/ckpt/20180408-102900.pb',
                         help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file')
     parser.add_argument('--image_size', type=int,
                         help='Image size (height, width) in pixels.', default=160)

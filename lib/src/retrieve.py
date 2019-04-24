@@ -125,7 +125,7 @@ def align_face(img,pnet, rnet, onet):
             bb[3] = np.minimum(det[3]+args.margin/2, img_size[0])
             cropped = img[bb[1]:bb[3],bb[0]:bb[2],:]
             scaled = misc.imresize(cropped, (args.image_size, args.image_size), interp='bilinear')
-            misc.imsave("/Users/cindybishop/Documents/Face_recognition/server/static/images/cropped.png", scaled)
+            misc.imsave("/Users/cindybishop/Documents/rockstar-ai/server/static/images/cropped.png", scaled)
             faces.append(scaled)
             bboxes.append(bb)
             print("leaving align face")

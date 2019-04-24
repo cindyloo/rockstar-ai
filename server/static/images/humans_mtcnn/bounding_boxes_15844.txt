@@ -1,0 +1,3 @@
+/Users/cindybishop/Documents/rockstar-ai/lib/data/humans/human_maiseywilliams_363.png 217 32 351 192
+/Users/cindybishop/Documents/rockstar-ai/lib/data/humans/human_baptiste_a_423.png 280 45 368 151
+/Users/cindybishop/Documents/rockstar-ai/lib/data/humans/human_dw_a_95.png 140 88 343 352
