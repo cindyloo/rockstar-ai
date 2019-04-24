@@ -8,7 +8,7 @@ This project from MIT's Civic Media serves a few purposes:
 
 2) To work towards a dataset and model that can approximate the human capability to see faces in non-human and inorganic objects.
 
-3) To provide a speculative social media platform in which identity is not connected to one's physical face as much as it is to a "Rockelganger."
+3) To provide a speculative social media platform in which identity is not connected to one's physical face as much as it is to a "Rockelganger." In fact, a side benefit is the 'identity-scrambling' capability of the Rockelganger. Since facial recognition systems are trained solely on humans faces (and sometimes [cats](https://www.pyimagesearch.com/2016/06/20/detecting-cats-in-images-with-opencv/)), rock faces cannot be tracked.
 
 A light weight face recognition implementation using a pre-trained facenet model. Most of the code is taken from David Sandberg's  [facenet](https://github.com/davidsandberg/facenet) repository.
 
