@@ -1,6 +1,6 @@
 # RockStar AI
 
-https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/spock_rock.png
+<img src="https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/spock_rock.png" />
 
 This project from MIT's Civic Media serves a few purposes:
 
