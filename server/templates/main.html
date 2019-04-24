@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Face Recognition Service</title>
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="/js/main.js" async></script>
+
+    <base target="_blank">
+
+    <style>
+        #snapshot {
+            float: right;
+            position: absolute;
+            margin-left: 1100px;
+            margin-top: 670px;
+            border: 5px solid red;
+        }
+        input, button {
+            padding: 15px;
+            margin: 10px;
+            font-family: "Helvetica";
+            font-size: 25px;
+        }
+        .navbar {
+            border-bottom: 3px solid gray;
+            margin-bottom: 20px;
+            background-color: lightyellow;
+        }
+        img {
+            padding: 10px;
+            border: 3px solid gray;
+        }
+        .container {
+            max-width: 1800px;
+        }
+
+        h2 {
+            font-size: 80px;
+        }
+        video {
+            vertical-align: middle;
+            text-align:center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <img style="float:left;margin-left:570px;" src="/images/rockstar-ai_logo.png"  width="200"></img>
+        <h2> RockStar-ai</h2>
+        <img style="float:right;padding:50px;margin-right:700px;" src="/images/spock_rock.png"  width="500"></img>
+
+    </div>
+
+<div id="main" class="container">
+
+    <div class="row">
+        <div class="col">
+<button id="showVideo">Show</button>
+    <button id="snapshot"><h3>Rock Me!</h3></button>
+    <video playsinline autoplay width="1000px"></video>
+        </div>
+    </div>
+     <br>
+
+
+
+    <br />
+
+    <div>
+
+<img id="cropped" src="/images/cropped.png"  width="300"></img>
+    <button id="uncoverConnectionButton">Your RockStar is --></button>
+    <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="300"></img>
+    <button id="placeholder" class="reveal">Who matches </button>
+    <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
+    </div>
+    <br/><br/><br/>
+    <div id="results" class="reveal row">
+
+    <h3>Our experts suggest your Rockelganger, based on a {{ accuracy_eval * 10 }}% likeness, is <strong>{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</strong></h3>
+</div>
+
+    <br /><br /><br /><br /><br />
+        <canvas></canvas>
+    </div>
+
+    <script type="text/javascript">
+
+        function load_new_rock() {
+            $.ajax({
+                url: 'rock_it',
+            }).done(function (data) {
+                console.log(data)
+                $("rock").src = data;
+            });
+        }
+
+        function load_new_matches() {
+            $.ajax({
+                url: 'get_match',
+            }).done(function (data) {
+                console.log(data)
+                //load_new_rock();
+                $("match").src = "/images/humans_mtcnn/" + data;
+            });
+        }
+
+
+      
+      
+       
+    </script>
+</body>
+</html>

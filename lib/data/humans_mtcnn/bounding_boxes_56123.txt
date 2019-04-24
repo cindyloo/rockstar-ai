@@ -1,0 +1,54 @@
+../data/humans_mtcnn/anushka_shah/Anushka_rock_ - 527.png
+../data/humans_mtcnn/chad_smith/human_chad_smith_c_.png 49 70 243 304
+../data/humans_mtcnn/dalai_lama/Human_dalai_lama_a_193.png 91 64 503 608
+../data/humans_mtcnn/ethan_zuckerman/human_ethan_z_569.png
+../data/humans_mtcnn/sam_huntingon/human_sam_huntington_a_150.png 82 117 461 649
+../data/humans_mtcnn/antonio_banderos/IMG_5781.png
+../data/humans_mtcnn/antonio_banderos/IMG_5782.png
+../data/humans_mtcnn/antonio_banderos/IMG_5783.png 1016 2834 1068 2894
+../data/humans_mtcnn/antonio_banderos/rocks_1001.png
+../data/humans_mtcnn/antonio_banderos/rocks_1000.png
+../data/humans_mtcnn/tom_mcgowan/human_tom_mcgowan_a_199.png 37 13 177 181
+../data/humans_mtcnn/tom_mcgowan/human_tom_middleton_510.png 541 133 948 671
+../data/humans_mtcnn/salvator_dali/human_salvator_dali_665.png 123 27 303 237
+../data/humans_mtcnn/cindy_bishop/human_cindy_bishop_b_690.png 75 212 860 1306
+../data/humans_mtcnn/cindy_bishop/human_cindybishop_874.png 119 81 340 367
+../data/humans_mtcnn/ryley_f/human_ryley_f_921.png 234 199 725 728
+../data/humans_mtcnn/mr_bean/human_mr_bean_a_165.png 97 0 539 552
+../data/humans_mtcnn/aashka/human_aashka_derpy_757.png 71 113 405 546
+../data/humans_mtcnn/brat_from_got/human_brat_from_got_508.png 35 112 246 376
+../data/humans_mtcnn/will_farrell/human_will_farrell_b_84.png 49 72 245 322
+../data/humans_mtcnn/will_farrell/human_will_farrell_pearl_a_84.png 159 50 314 246
+../data/humans_mtcnn/will_farrell/human_will_farrell_c_84.png 76 65 271 323
+../data/humans_mtcnn/will_farrell/human_will_farrell_bc_84.png 113 111 441 536
+../data/humans_mtcnn/will_farrell/human_will_farrell_a_84.png 48 29 195 234
+../data/humans_mtcnn/rubez_chong/human_rubez_chong_137.png 56 51 168 191
+../data/humans_mtcnn/rubez_chong/human_rubez_chong_78.png 17 28 166 216
+../data/humans_mtcnn/pursed_lips_face/human_kissy_391.png 196 0 697 506
+../data/humans_mtcnn/anissa_pierre/human_anissa_pierre_29.png 788 342 1890 1872
+../data/humans_mtcnn/shan_you/Human_ShanYou_a_834.png
+../data/humans_mtcnn/joan_cusak/Human_joan_cusack_a_197.png 166 174 575 730
+../data/humans_mtcnn/joan_cusak/Human_joan_cusack_b_197.png 129 49 352 341
+../data/humans_mtcnn/kairina_kordela/human_kairina_kordela_a_161.png 60 91 403 548
+../data/humans_mtcnn/john_benjamin/human_h_john_benjamin_a_150.png 63 1 268 300
+../data/humans_mtcnn/shrek/human_shrek_a_904.png
+../data/humans_mtcnn/ariel_herbert_voss/human_ariel_herbert_voss_736.png 37 40 208 280
+../data/humans_mtcnn/surprised/emoji_worried_surprised_3.png
+../data/humans_mtcnn/grinch/human_grinch_b_787.png
+../data/humans_mtcnn/grinch/human_grinch_a_787.png
+../data/humans_mtcnn/lurch/human_lurch_757_b.png 172 208 293 348
+../data/humans_mtcnn/ashlyn_f/human_ashlyn_f_569.png 1308 193 2054 1181
+../data/humans_mtcnn/the_monsters/human_the_monsters_1080.png 63 53 255 297
+../data/humans_mtcnn/marlin_brando/human_marlin_brando_665.png 175 218 560 693
+../data/humans_mtcnn/divine/human_Divine_a_167.png 95 75 409 486
+../data/humans_mtcnn/brooke_shields/human_brooke_shields_a_406.png 217 49 477 408
+../data/humans_mtcnn/orestis_papakyriakopoulos/human_orestis_a_623.png 276 38 557 407
+../data/humans_mtcnn/charlie_sheen/human_Charlie_Sheen_559.png
+../data/humans_mtcnn/kermit/frog_kermit_12.png
+../data/humans_mtcnn/peyton_f/human_peyton_f_784.png 329 437 751 963
+../data/humans_mtcnn/peyton_f/human_peytonf_a_421.png 209 290 1049 1422
+../data/humans_mtcnn/vicky_palatin/human_vicki_265.png 212 285 381 490
+../data/humans_mtcnn/arturo_castro/Human_arturo_castro_a_199.png 146 152 524 641
+../data/humans_mtcnn/ben_stiller/human_ben_stiller_a_150.png 88 84 361 478
+../data/humans_mtcnn/lorrie_lejeune/human_lorrie_lejeune_510.png 53 46 231 258
+../data/humans_mtcnn/lorrie_lejeune/human_lorrie_lejeune_755.png 52 39 224 269

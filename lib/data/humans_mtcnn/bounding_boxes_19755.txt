@@ -1,0 +1,33 @@
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_gilda_radner_c_895.png 168 95 352 335
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_gilda_radner_895.png 51 73 258 336
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_gilda_radner_d_895.png 403 35 916 708
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_gilda_radner_b_895.png 181 95 319 266
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_lurch_831_b.png 172 208 293 348
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_lurch_831.png 172 208 293 348
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/Human_ShanYou_a_834.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/IMG_5781.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/IMG_5782.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/rocks_1001.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/rocks_1000.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/frog_kermit_12.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_joi_ito_1025_b.png 87 60 336 349
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_joi_ito_c_1025.png 375 13 534 211
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_joi_ito_1025.png 56 18 249 261
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_Charlie_Sheen_559.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_shrek_a_904.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/emoji_worried_surprised_3.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_grinch_b_787.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_grinch_a_787.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_john_malkovich.png 144 185 512 676
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_john_malkovich_c_823.png 170 56 485 460
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_john_malkovich_b_823.png 237 23 425 280
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_ethan_z_569.png
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_japanese_guy_942.png 0 0 59 79
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_rick_moranis_c_858.png 101 87 326 375
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_rick_moranis_b_858.png 245 243 609 705
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_rick_moranis_858.png 255 212 751 846
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_janet_jackson_b_1068.png 174 99 395 391
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_janet_jackson_c_1068.png 361 127 700 575
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_janet_jackson_1068.png 309 122 584 460
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_john_candy_1030.png 150 81 449 446
+/Users/cindybishop/Face_Recognition/lib/data/humans_mtcnn_no_subs/human_john_candy_b_1013.png 75 156 232 351
