@@ -135,7 +135,7 @@ def align_face(img,pnet, rnet, onet):
 def identify_person(image_vector, feature_array, k=9):
     top_k_ind = np.argsort([np.linalg.norm(image_vector-pred_row) for ith_row, pred_row in enumerate(feature_array.values())])[:k]
     result = list(feature_array.keys())[top_k_ind[0]]
-    acc = np.linalg.norm(image_vector-list(feature_array.values())[top_k_ind[0]])
+    acc = np.linalg.norm(image_vector-list(feature_array.values())[top_k_ind[0]]) #hack splurt
     return result, acc
 
 

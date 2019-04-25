@@ -14,6 +14,7 @@ import random
 import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
+from server import app
 from tensorflow.python.platform import gfile
 from six import iteritems
 import numpy as np
@@ -22,7 +23,6 @@ from lib.src.align import detect_face
 import tensorflow as tf
 import pickle
 from tensorflow.python.platform import gfile
-app = Flask(__name__, static_url_path = "")
 
 auth = HTTPBasicAuth()
 
