@@ -13,4 +13,4 @@ flask_httpauth
 six
 gunicorn
 tqdm
-cv2
+opencv-python
