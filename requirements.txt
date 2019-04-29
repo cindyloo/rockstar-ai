@@ -12,3 +12,5 @@ flask
 flask_httpauth
 six
 gunicorn
+tqdm
+cv2
