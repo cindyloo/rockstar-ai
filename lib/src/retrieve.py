@@ -81,7 +81,7 @@ def align_face(img,pnet, rnet, onet):
     threshold = [ 0.6, 0.7, 0.7 ]  # three steps's threshold
     factor = 0.709 # scale factor
 
-    print("before img.size == 0")
+    print("aligning face")
     if img.size == 0:
         print("empty array")
         return False,img,[0,0,0,0]
@@ -100,10 +100,10 @@ def align_face(img,pnet, rnet, onet):
 
 
     if nrof_faces==0:
-        print("nrof_faces = 0")
+        print("no bounding box/faces found")
         return False,img,[0,0,0,0]
     else:
-        print("find bounding boxes")
+        print("found bounding boxes for faces")
         det = bounding_boxes[:,0:4]
         det_arr = []
         img_size = np.asarray(img.shape)[0:2]
@@ -135,7 +135,6 @@ def align_face(img,pnet, rnet, onet):
             misc.imsave("/Users/cindybishop/Documents/rockstar-ai/server/static/images/cropped.png", scaled)
             faces.append(scaled)
             bboxes.append(bb)
-            print("leaving align face")
         return True,faces,bboxes
 			
 
@@ -170,7 +169,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     if(gray.size > 0):
         print(gray.size)
         response, faces,bboxs = align_face(gray,pnet, rnet, onet)
-        print("align_face" + str(response))
+        print("align_face " + str(response))
 
         #cv2.imshow('img', gray) - in align we save the image so we don't need to see it here
         if (response == True):
@@ -178,7 +177,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
             for i, image in enumerate(faces):
                 bb = bboxs[i]
 
-                print("now load image")
+                print("load image")
                 if image is not None:
                     images = load_img(image, False, False, image_size)
                     feed_dict = { images_placeholder:images, phase_train_placeholder:False }
