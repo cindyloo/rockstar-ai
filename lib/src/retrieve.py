@@ -50,23 +50,30 @@ from scipy.misc import imsave
 from scipy.spatial.distance import cosine
 import pickle
 #face_cascade = cv2.CascadeClassifier('out/face/haarcascade_frontalface_default.xml')
-parser = argparse.ArgumentParser()
+#parser = argparse.ArgumentParser()
     
-
-parser.add_argument('--lfw_batch_size', type=int,
-        help='Number of images to process in a batch in the LFW test set.', default=100)
-parser.add_argument('--image_size', type=int,
-        help='Image size (height, width) in pixels.', default=160)
-parser.add_argument('--detect_multiple_faces', type=bool,
-                        help='Detect and align multiple faces per image.', default=True)
-parser.add_argument('--margin', type=int,
-        help='Margin for the crop around the bounding box (height, width) in pixels.', default=44)
-parser.add_argument('--random_order', 
-        help='Shuffles the order of images to enable alignment using multiple processes.', action='store_true')
-parser.add_argument('--gpu_memory_fraction', type=float,
-        help='Upper bound on the amount of GPU memory that will be used by the process.', default=1.0)
-
-args = parser.parse_args()
+args = {
+    "lfw_batch_size": 100,
+    "image_size": 160,
+    "detect_multiple_faces": True,
+    "margin": 44,
+    "random_order":'store_true',
+    "gpu_memory_fraction": 1.0,
+}
+# parser.add_argument('--lfw_batch_size', type=int,
+#         help='Number of images to process in a batch in the LFW test set.', default=100)
+# parser.add_argument('--image_size', type=int,
+#         help='Image size (height, width) in pixels.', default=160)
+# parser.add_argument('--detect_multiple_faces', type=bool,
+#                         help='Detect and align multiple faces per image.', default=True)
+# parser.add_argument('--margin', type=int,
+#         help='Margin for the crop around the bounding box (height, width) in pixels.', default=44)
+# parser.add_argument('--random_order',
+#         help='Shuffles the order of images to enable alignment using multiple processes.', action='store_true')
+# parser.add_argument('--gpu_memory_fraction', type=float,
+#         help='Upper bound on the amount of GPU memory that will be used by the process.', default=1.0)
+#
+# args = parser.parse_args()
 
 def align_face(img,pnet, rnet, onet):
 
@@ -101,7 +108,7 @@ def align_face(img,pnet, rnet, onet):
         det_arr = []
         img_size = np.asarray(img.shape)[0:2]
         if nrof_faces>1:
-            if args.detect_multiple_faces:
+            if args["detect_multiple_faces"]:
                 for i in range(nrof_faces):
                     det_arr.append(np.squeeze(det[i]))
             else:
@@ -119,12 +126,12 @@ def align_face(img,pnet, rnet, onet):
         for i, det in enumerate(det_arr):
             det = np.squeeze(det)
             bb = np.zeros(4, dtype=np.int32)
-            bb[0] = np.maximum(det[0]-args.margin/2, 0)
-            bb[1] = np.maximum(det[1]-args.margin/2, 0)
-            bb[2] = np.minimum(det[2]+args.margin/2, img_size[1])
-            bb[3] = np.minimum(det[3]+args.margin/2, img_size[0])
+            bb[0] = np.maximum(det[0]-args["margin"]/2, 0)
+            bb[1] = np.maximum(det[1]-args["margin"]/2, 0)
+            bb[2] = np.minimum(det[2]+args["margin"]/2, img_size[1])
+            bb[3] = np.minimum(det[3]+args["margin"]/2, img_size[0])
             cropped = img[bb[1]:bb[3],bb[0]:bb[2],:]
-            scaled = misc.imresize(cropped, (args.image_size, args.image_size), interp='bilinear')
+            scaled = misc.imresize(cropped, (args["image_size"], args["image_size"]), interp='bilinear')
             misc.imsave("/Users/cindybishop/Documents/rockstar-ai/server/static/images/cropped.png", scaled)
             faces.append(scaled)
             bboxes.append(bb)
@@ -146,7 +153,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     embeddings = sess.graph.get_tensor_by_name("embeddings:0")
     phase_train_placeholder = sess.graph.get_tensor_by_name("phase_train:0")
 
-    image_size = args.image_size
+    image_size = args["image_size"]
     embedding_size = embeddings.get_shape()[1]
 
     cap = cv2.VideoCapture(0)

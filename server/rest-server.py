@@ -24,6 +24,8 @@ import tensorflow as tf
 import pickle
 from tensorflow.python.platform import gfile
 
+app = Flask(__name__, static_url_path = "")
+
 auth = HTTPBasicAuth()
 
 global closest_match_filename
