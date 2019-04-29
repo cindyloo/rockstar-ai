@@ -41,10 +41,10 @@ accuracy_eval = 0.0
 #                                                                          						        
 #                                                                                                                              
 #==============================================================================================================================
-with open('/Users/cindybishop/Documents/rockstar-ai/lib/src/extracted_dict.pickle','rb') as f:
+with open('./lib/src/extracted_dict.pickle','rb') as f:
 	feature_array = pickle.load(f)
 
-model_exp = '/Users/cindybishop/Documents/rockstar-ai/lib/src/ckpt/'
+model_exp = './lib/src/ckpt/'
 graph_fr = tf.Graph()
 sess_fr = tf.Session(graph=graph_fr)
 
