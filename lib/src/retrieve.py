@@ -156,7 +156,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     embedding_size = embeddings.get_shape()[1]
     cap = {}
     try:
-        cap = cv2.VideoCapture()
+        cap = cv2.VideoCapture(1)
 
         cap.open(0, apiPreference=cv2.CAP_V4L2)
         cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
