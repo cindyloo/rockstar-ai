@@ -164,51 +164,54 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 960)
         cap.set(cv2.CAP_PROP_FPS, 30.0)
     except Error:
+        print("error!!!")
         print(e)
     print(cap.isOpened())
 
-    ret, frame = cap.read()
+    if cap.isOpened():
+        ret, frame = cap.read()
 
-    gray = cv2.cvtColor(frame, 0)
+        gray = cv2.cvtColor(frame, 0)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        cap.release()
-        cv2.destroyAllWindows()
-        return ""
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            cap.release()
+            cv2.destroyAllWindows()
+            return ""
 
-    if(gray.size > 0):
-        print(gray.size)
-        response, faces,bboxs = align_face(gray,pnet, rnet, onet)
-        print("align_face " + str(response))
+        if(gray.size > 0):
+            print(gray.size)
+            response, faces,bboxs = align_face(gray,pnet, rnet, onet)
+            print("align_face " + str(response))
 
-        #cv2.imshow('img', gray) - in align we save the image so we don't need to see it here
-        if (response == True):
+            #cv2.imshow('img', gray) - in align we save the image so we don't need to see it here
+            if (response == True):
 
-            for i, image in enumerate(faces):
-                bb = bboxs[i]
+                for i, image in enumerate(faces):
+                    bb = bboxs[i]
 
-                print("load image")
-                if image is not None:
-                    images = load_img(image, False, False, image_size)
-                    feed_dict = { images_placeholder:images, phase_train_placeholder:False }
-                    feature_vector = sess.run(embeddings, feed_dict=feed_dict)
-                    result, accuracy = identify_person(feature_vector, feature_array,16)
-                    print(result)
-                    print(result.split("/")[2])
-                    print("accuracy ", accuracy)
+                    print("load image")
+                    if image is not None:
+                        images = load_img(image, False, False, image_size)
+                        feed_dict = { images_placeholder:images, phase_train_placeholder:False }
+                        feature_vector = sess.run(embeddings, feed_dict=feed_dict)
+                        result, accuracy = identify_person(feature_vector, feature_array,16)
+                        print(result)
+                        print(result.split("/")[2])
+                        print("accuracy ", accuracy)
 
-                    if accuracy < 0.9:
-                        cv2.rectangle(gray,(bb[0],bb[1]),(bb[2],bb[3]),(255,255,255),2)
-                        W = int(bb[2]-bb[0])//2
-                        H = int(bb[3]-bb[1])//2
-                        cv2.putText(gray,"Hello "+result.split("/")[2],(bb[0]+W-(W//2),bb[1]-7), cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),1,cv2.LINE_AA)
-                    else:
-                        cv2.rectangle(gray,(bb[0],bb[1]),(bb[2],bb[3]),(255,255,255),2)
-                        W = int(bb[2]-bb[0])//2
-                        H = int(bb[3]-bb[1])//2
-                        cv2.putText(gray,"WHO ARE YOU ?",(bb[0]+W-(W//2),bb[1]-7), cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),1,cv2.LINE_AA)
-                    del feature_vector
-                    oldgray = gray
-                    return result, accuracy
+                        if accuracy < 0.9:
+                            cv2.rectangle(gray,(bb[0],bb[1]),(bb[2],bb[3]),(255,255,255),2)
+                            W = int(bb[2]-bb[0])//2
+                            H = int(bb[3]-bb[1])//2
+                            cv2.putText(gray,"Hello "+result.split("/")[2],(bb[0]+W-(W//2),bb[1]-7), cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),1,cv2.LINE_AA)
+                        else:
+                            cv2.rectangle(gray,(bb[0],bb[1]),(bb[2],bb[3]),(255,255,255),2)
+                            W = int(bb[2]-bb[0])//2
+                            H = int(bb[3]-bb[1])//2
+                            cv2.putText(gray,"WHO ARE YOU ?",(bb[0]+W-(W//2),bb[1]-7), cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),1,cv2.LINE_AA)
+                        del feature_vector
+                        oldgray = gray
+                        return result, accuracy
+        return "", ""
     return "", ""
 
