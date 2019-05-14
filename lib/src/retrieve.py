@@ -155,7 +155,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     image_size = args["image_size"]
     embedding_size = embeddings.get_shape()[1]
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(-1)
 
     ret, frame = cap.read()
 
