@@ -163,9 +163,9 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 960)
         cap.set(cv2.CAP_PROP_FPS, 30.0)
-    except Error:
-        print("error!!!")
-        print(e)
+    except (Error, IOError, ValueError, IndexError) as e:
+            errorMessage = '{}: {}'.format(image_path, e)
+            print(errorMessage)
     print(cap.isOpened())
 
     if cap.isOpened():
