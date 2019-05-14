@@ -3,7 +3,7 @@
   "description": "A human-to-rock matching and identity-scrambling system",
   "scripts": {
     "dokku": {
-      "predepploy": "./lib/src/get_model.sh"
+      "predeploy": "./lib/src/get_model.sh"
     }
   }
 }
