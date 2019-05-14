@@ -44,7 +44,7 @@ accuracy_eval = 0.0
 with open('./lib/src/extracted_dict.pickle','rb') as f:
 	feature_array = pickle.load(f)
 
-model_exp = './lib/src/ckpt/'
+model_exp = './lib/src/ckpt/20180408-102900'
 graph_fr = tf.Graph()
 sess_fr = tf.Session(graph=graph_fr)
 
@@ -119,4 +119,4 @@ def main():
 
 	return render_template("main.html", closest_match_filename=closest_match_filename, closest_match_rock=closest_match_rock, accuracy_eval=accuracy_eval)
 if __name__ == '__main__':
-	app.run(debug = True, host= '0.0.0.0')
+	app.run(debug = True, host= '0.0.0.0', port=8080)
