@@ -158,6 +158,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     try:
         cap = cv2.VideoCapture(0)
     except Error:
+        cap = cv2.VideoCapture(-1)
         print(e)
     print(cap.isOpened())
 
