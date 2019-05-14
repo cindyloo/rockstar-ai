@@ -119,4 +119,4 @@ def main():
 
 	return render_template("main.html", closest_match_filename=closest_match_filename, closest_match_rock=closest_match_rock, accuracy_eval=accuracy_eval)
 if __name__ == '__main__':
-	app.run(debug = True, host= '0.0.0.0', port=8080)
+	app.run(debug = True, host= 'rockstar.brownbag.me') # for production other wise use 0.0.0.0
