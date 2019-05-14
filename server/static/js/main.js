@@ -61,13 +61,14 @@ function handleError(error) {
 }
 
 async function init(e) {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-    e.target.disabled = true;
-  } catch (e) {
-    handleError(e);
-  }
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(stream) {
+            handleSuccess(stream);
+            e.target.disabled = true;
+        })
+          .catch(function(err) {
+  handleError(e);
+          });
 }
 
 init();
