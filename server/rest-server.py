@@ -109,6 +109,11 @@ def face_det():
 	# set_data() # I don't think this does anything. filename is still default "nothing"
 	return closest_match_filename
 
+@app.route("/about")
+def about():
+	return render_template("about.html")
+
+
 #==============================================================================================================================
 #                                                                                                                              
 #                                           Main function                                                        	            #						     									       

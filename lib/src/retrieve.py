@@ -154,7 +154,13 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
 
     image_size = args["image_size"]
     embedding_size = embeddings.get_shape()[1]
-    cap = cv2.VideoCapture(0)
+    try:
+        cap = cv2.VideoCapture(0)
+    except:
+        try:
+            cap = cv2.VideoCapture("rtsp://0.0.0.0:5000/out.h264")
+        except (Error) as e:
+            print(e)
 
     print(cap.isOpened())
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Rockstar AI</title>
+<title>About Rockstar AI</title>
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
@@ -80,50 +80,9 @@
   </div>
 </header>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-<button id="showVideo">Show</button>
-    <button id="snapshot"><h3>Rock Me!</h3></button>
-    <video playsinline autoplay width="1000px"></video>
-        </div>
-    </div>
-     <br>
 
+<h3> About Rockstar </h3>
+<h3>Want to tag your own rocKstar? send me a request: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Follow this link to the Rocks!</a></h3>
 
-
-    <br />
-
-    <div>
-
-<img id="cropped" src="/images/cropped.png"  width="300"></img>
-    <button id="uncoverConnectionButton">Your RockStar is --></button>
-    <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="300"></img>
-    <button id="placeholder" class="reveal">Who matches </button>
-    <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
-    </div>
-    <br/><br/><br/>
-
-    <div id="results" class="reveal row">
-
-    <h3>Our experts suggest your Rockelganger, based on a {{ accuracy_eval * 100 }}% likeness, is <strong>{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</strong></h3>
-
-
-    </div>
-<h3> Want to tag your own rocKstar? send me a request: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Follow this link to the Rocks!</a></h3>
-
-    <br /><br /><br /><br /><br />
-        <canvas></canvas>
-    </div>
-
-    <script type="text/javascript">
-
-
-
-
-      
-      
-       
-    </script>
 </body>
 </html>
