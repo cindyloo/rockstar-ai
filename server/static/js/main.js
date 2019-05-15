@@ -48,7 +48,7 @@ $.ajax({
         load_new_matches();
         load_new_rock();
         $("body").css("cursor", "default");
-        $("input:hover").css("cursor", "default");
+        $("button:hover").css("cursor", "default");
     });
 }
 
@@ -97,6 +97,7 @@ snapshotButton.onclick = function() {
   // canvas.className = filterSelect.value;
   var img = canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   $("body").css("cursor", "progress");
+  $("button:hover").css("cursor", "progress");
   var dataURL = canvas.toDataURL();
   // also save this ?
   call_server(dataURL);
