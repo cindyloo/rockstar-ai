@@ -145,7 +145,7 @@ def identify_person(image_vector, feature_array, k=9):
     return result, acc
 
 
-def recognize_face(sess,pnet, rnet, onet,feature_array):
+def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
     # Get input and output tensors
     images_placeholder = sess.graph.get_tensor_by_name("input:0")
     images_placeholder = tf.image.resize_images(images_placeholder,(160,160))
@@ -154,21 +154,21 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
 
     image_size = args["image_size"]
     embedding_size = embeddings.get_shape()[1]
-    try:
-        cap = cv2.VideoCapture(0)
-    except (Error) as e:
-        try:
-            print("trying rtsp")
-            cap = cv2.VideoCapture("rtsp://localhost:5000/out.h264")
-        except (Error) as e:
-            print(e)
+#    try:
+#       cap = cv2.VideoCapture(0)
+#    except (Error) as e:
+#        try:
+#            print("trying rtsp")
+#            cap = cv2.VideoCapture("rtsp://localhost:5000/out.h264")
+#        except (Error) as e:
+#            print(e)
+#    print(cap.isOpened())
 
-    print(cap.isOpened())
-
-    if cap.isOpened():
-        ret, frame = cap.read()
-
-        gray = cv2.cvtColor(frame, 0)
+    if current_image:
+        #ret, frame = cap.read()
+        print(current_image)
+        cv_image = cv2.imread('./server/current_image.jpg', 0)
+        gray = cv2.cvtColor(cv_image, 0)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cap.release()

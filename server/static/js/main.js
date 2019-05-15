@@ -23,11 +23,27 @@ const canvas = window.canvas = document.querySelector('canvas');
 canvas.width = 600;
 canvas.height = 480;
 
-function call_server(){
-    $.ajax({
-        url: 'facerecognitionLive',
-    }).done(function() {
 
+function call_server(dataURL){
+
+var blobBin = atob(dataURL.split(',')[1]);
+var array = [];
+for(var i = 0; i < blobBin.length; i++) {
+    array.push(blobBin.charCodeAt(i));
+}
+var file=new Blob([new Uint8Array(array)], {type: 'image/png'});
+
+
+var formdata = new FormData();
+formdata.append("current_image", file);
+$.ajax({
+   url: "facerecognitionLive",
+   type: "POST",
+   data: formdata,
+   processData: false,
+   contentType: false,
+}).done(function(respond){
+  alert(respond);
         load_new_selfie();
         clear_rocks();
         load_new_matches();
@@ -74,10 +90,11 @@ $("#showVideo").hide();
 
 snapshotButton.onclick = function() {
   // canvas.className = filterSelect.value;
-  canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+  var img = canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   $("body").css("cursor", "progress");
-  call_server();
-  // load_new_selfie();
+  var dataURL = canvas.toDataURL();
+  // also save this ?
+  call_server(dataURL);
 };
 
 placeholder.onclick = function() {

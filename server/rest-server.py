@@ -23,6 +23,10 @@ from lib.src.align import detect_face
 import tensorflow as tf
 import pickle
 from tensorflow.python.platform import gfile
+from PIL import Image
+from io import BytesIO, StringIO
+import base64
+import re
 
 app = Flask(__name__, static_url_path = "")
 
@@ -31,7 +35,9 @@ auth = HTTPBasicAuth()
 global closest_match_filename
 global closest_match_rock
 global accuracy_eval
+global current_img
 
+current_img = ''
 closest_match_filename = "nothing"
 closest_match_rock = "nothingtoo"
 accuracy_eval = 0.0
@@ -48,6 +54,7 @@ model_exp = './lib/src/ckpt/20180408-102900'
 graph_fr = tf.Graph()
 sess_fr = tf.Session(graph=graph_fr)
 
+pnet, rnet, onet = '', '', ''
 with graph_fr.as_default():
 	saverf = tf.train.import_meta_graph(os.path.join(model_exp, 'model-20180408-102900.meta'))
 	saverf.restore(sess_fr, os.path.join(model_exp, 'model-20180408-102900.ckpt-90'))
@@ -66,6 +73,24 @@ def set_data():
 def get_cropped():
 	print("in get cropped")
 	return "/images/cropped.png"
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ['.png']
+
+PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
+UPLOAD_FOLDER = '{}/'.format(PROJECT_HOME)
+# route http posts to this method
+#@app.route('/send_receive_img', methods=['POST'])
+def send_receive_img():
+	img = request.files['current_image']
+
+	if img:
+		filename = "current_image.jpg"
+		img.save(os.path.join(UPLOAD_FOLDER, filename))
+		print("saving ")
+		return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
+
 
 @app.route('/return_img')
 def return_img():
@@ -96,9 +121,10 @@ def rock_it():
 
 @app.route('/facerecognitionLive', methods=['GET', 'POST'])
 def face_det():
-
-	closest_match, accuracy = retrieve.recognize_face(sess_fr,pnet, rnet, onet,feature_array)
-	print("now save match")
+	current_img = send_receive_img()
+	print("received image")
+	closest_match, accuracy = retrieve.recognize_face(sess_fr,pnet, rnet, onet,feature_array, current_img)
+	print("now save match" )
 	closest_match = "/".join(closest_match.split('/')[8:])
 	global closest_match_filename
 	global accuracy_eval
