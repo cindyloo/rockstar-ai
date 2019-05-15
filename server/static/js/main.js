@@ -43,7 +43,6 @@ $.ajax({
    processData: false,
    contentType: false,
 }).done(function(respond){
-  alert(respond);
         load_new_selfie();
         clear_rocks();
         load_new_matches();
