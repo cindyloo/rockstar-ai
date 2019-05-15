@@ -83,7 +83,12 @@ function load_new_rock() {
                 $("#match").attr("src", data);
             });
         }
-
+function about_page() {
+            $.ajax({
+                url: 'about',
+            }).done(function (data) {
+            });
+        }
 $(".reveal").hide();
 $("#showVideo").hide();
 

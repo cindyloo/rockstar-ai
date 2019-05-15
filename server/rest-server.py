@@ -137,7 +137,7 @@ def face_det():
 
 @app.route("/about")
 def about():
-	return render_template("about.html")
+	return send_from_directory(UPLOAD_FOLDER, 'rock_face_instructions.pdf', as_attachment=True)
 
 
 #==============================================================================================================================
