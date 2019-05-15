@@ -156,9 +156,10 @@ def recognize_face(sess,pnet, rnet, onet,feature_array):
     embedding_size = embeddings.get_shape()[1]
     try:
         cap = cv2.VideoCapture(0)
-    except:
+    except (Error) as e:
         try:
-            cap = cv2.VideoCapture("rtsp://0.0.0.0:5000/out.h264")
+            print("trying rtsp")
+            cap = cv2.VideoCapture("rtsp://localhost:5000/out.h264")
         except (Error) as e:
             print(e)
 

@@ -33,6 +33,7 @@ function call_server(){
         load_new_matches();
         load_new_rock();
         $("body").css("cursor", "default");
+        $("input:hover").css("cursor", "default");
     });
 }
 
