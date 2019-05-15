@@ -86,6 +86,7 @@ function load_new_rock() {
 function about_page() {
             $.ajax({
                 url: 'about',
+                type: "GET",
             }).done(function (data) {
             });
         }
