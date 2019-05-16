@@ -83,7 +83,7 @@ function load_new_rock() {
             $.ajax({
                 url: 'rock_it',
             }).done(function (data) {
-                console.log(data)
+                console.log(data)aou
                 $("#rock").attr("src", data);
             });
         }
