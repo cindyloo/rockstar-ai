@@ -10,6 +10,10 @@ This project from MIT's Civic Media serves a few purposes:
 
 3) To provide a speculative social media platform in which identity is not connected to one's physical face as much as it is to a "Rockelganger." In fact, a side benefit is the 'identity-scrambling' capability of the Rockelganger. Since facial recognition systems are trained solely on humans faces (and sometimes [cats](https://www.pyimagesearch.com/2016/06/20/detecting-cats-in-images-with-opencv/)), rock faces cannot be tracked.
 
+Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town. He gathered them over 50 years and in fact started up a museum showcasing these rocks of humanity. Now, having passed away, his daughter runs the [museum](http://www006.upp.so-net.ne.jp/chinseki/index-ex.html). There is something very human about seeing faces in organic as well as inorganic material. This capability is something fairly difficult to replicate in machine learning algorithms.
+
+Let us see how well or poorly we can train a model to see faces! We'll go for the lower-hanging approach first:
+
 A light weight face recognition implementation using a pre-trained facenet model. Most of the code is taken from David Sandberg's  [facenet](https://github.com/davidsandberg/facenet) repository.
 
 ## I followed Vinayak Kailas' excellent [tutorial](https://github.com/vinayakkailas/Face_Recognition) to utilize David Sandberg's FaceNet 
@@ -56,4 +60,4 @@ References:
 Additional notes:
 We will be pairing more humans to rocks and could use your help! Please contact me!
 
-Thanks to Damien Henry at Google Arts for the suggestion to create human-to-rock pairings with which to train the system
+Thanks to Damien Henry at Google Arts for the suggestion for Part 1 of this approach: to create human-to-rock pairings with which to train the system
