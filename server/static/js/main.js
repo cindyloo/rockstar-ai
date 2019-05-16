@@ -50,6 +50,9 @@ $.ajax({
         load_new_rock();
         $("body").css("cursor", "default");
         $("button:hover").css("cursor", "pointer");
+        if (respond.length) {
+            $("#match_name").text(respond.split('/')[0]);
+        }
     });
 }
 
