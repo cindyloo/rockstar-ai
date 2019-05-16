@@ -60,4 +60,4 @@ References:
 Additional notes:
 We will be pairing more humans to rocks and could use your help! Please contact me!
 
-Thanks to Damien Henry at Google Arts for the suggestion to create human-to-rock pairings with which to train the system
+Thanks to Damien Henry at Google Arts for the suggestion for Part 1 of this approach: to create human-to-rock pairings with which to train the system
