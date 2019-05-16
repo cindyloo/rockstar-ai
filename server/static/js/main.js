@@ -48,7 +48,7 @@ $.ajax({
         load_new_matches();
         load_new_rock();
         $("body").css("cursor", "default");
-        $("button:hover").css("cursor", "default");
+        $("button:hover").css("cursor", "pointer");
     });
 }
 
