@@ -49,7 +49,8 @@ $.ajax({
         load_new_matches();
         load_new_rock();
         $("body").css("cursor", "default");
-        $("button:hover").css("cursor", "pointer");
+        $("button:hover").css("cursor", "default");
+        $("#snapshot:hover").css("cursor", "default");
         if (respond.length) {
             $("#match_name").text(respond.split('/')[0]);
         }
@@ -106,12 +107,14 @@ function about_page() {
 $(".reveal").hide();
 $(".showFirst").hide();
 $("#showVideo").hide();
+  $("body").css("cursor", "default");
+  $("#snapshot:hover").css("cursor", "default");
 
 snapshotButton.onclick = function() {
   // canvas.className = filterSelect.value;
   var img = canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
   $("body").css("cursor", "progress");
-  $("button:hover").css("cursor", "progress");
+  $("#snapshot:hover").css("cursor", "progress");
   var dataURL = canvas.toDataURL();
   // also save this ?
   call_server(dataURL);
