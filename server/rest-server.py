@@ -103,6 +103,12 @@ def get_match():
 	full_path = "/images/humans_mtcnn/" + closest_match_filename
 	return full_path
 
+@app.route('/get_accuracy')
+def get_accuracy():
+	print("in accuracy")
+	global accuracy_eval
+	return '{}'.format(accuracy_eval * 100)
+
 @app.route('/rock_it')
 def rock_it():
 	print("in rock it")

@@ -53,6 +53,7 @@ $.ajax({
         if (respond.length) {
             $("#match_name").text(respond.split('/')[0]);
         }
+        load_new_accuracy();
     });
 }
 
@@ -68,6 +69,14 @@ function load_new_selfie() {
             });
         }
 
+function load_new_accuracy() {
+            $.ajax({
+                url: 'get_accuracy',
+            }).done(function (data) {
+                console.log(data);
+                $("#accuracy").text(data);
+            });
+        }
 
 function load_new_rock() {
             $.ajax({
