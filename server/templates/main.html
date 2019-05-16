@@ -18,8 +18,8 @@
         #snapshot {
             float: right;
             position: absolute;
-            margin-left: 1100px;
-            margin-top: 670px;
+            margin-left: 700px;
+            margin-top: 380px;
             border: 5px solid red;
         }
         input, button {
@@ -56,23 +56,21 @@
 
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-      <div class="navbar navbar-custom">
-        <img style="float:left;padding:50px; margin:50px;" src="/images/rockstar-ai_logo.png"  width="200"></img>
-        <h2> RockStar-ai</h2>
-        <img style="float:right;padding:50px;margin:50px;" src="/images/spock_rock.png"  width="500"></img>
+              <a href="./"><img style="float:left;margin:50px;" src="/images/rockstar-ai_logo.png"  width="150"></img></a>
+        <h3 style="float:left;"> RockStar-ai</h3>
+        <img style="float:right;margin:50px;" src="/images/spock_rock.png"  width="300"></img>
 
-    </div>
     <div class="navbar-header">
       <a href="./" class="navbar-brand">Rockstar</a>
 
       <nav role="navigation">
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="rock_face_instructions.pdf" >How To Tag Rocks, Part 1</a></li>
-        <li>
+                  <li>
           <a href="./">Rock Me!</a>
         </li>
+          <li><a href="rock_face_instructions.pdf" >How To Tag Rocks, Part 1</a></li>
           <li>
-          <a href="https://github.com/cindyloo/rockstar-ai">Github link</a>
+          <a href="https://github.com/cindyloo/rockstar-ai">More at Github...</a>
         </li>
           <li><a href="/about" >About</a></li>
         <li>
@@ -87,7 +85,7 @@
         <div class="col">
 <button id="showVideo">Show</button>
     <button id="snapshot"><h3>Rock Me!</h3></button>
-    <video id="theVideo" playsinline autoplay width="1000px"></video>
+    <video id="theVideo" playsinline autoplay width="600px"></video>
         </div>
     </div>
      <br>
@@ -98,8 +96,8 @@
 
     <div>
 
-<img id="cropped" src="/images/cropped.png"  width="300"></img>
-    <button id="uncoverConnectionButton">Your RockStar is --></button>
+    <img class="showFirst" id="cropped" src="/images/cropped.png"  width="300"></img>
+    <button class="showFirst" id="uncoverConnectionButton">Your RockStar is --></button>
     <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="300"></img>
     <button id="placeholder" class="reveal">Who matches </button>
     <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
@@ -109,13 +107,13 @@
     <div id="results" class="reveal row">
 
     <h3>Our experts suggest your Rockelganger, based on a {{ accuracy_eval * 100 }}% likeness, is <strong>{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</strong></h3>
-
+<br /><br /><br /><br />
+<h3> Think you can find a better <italic>Rockelganger</italic>? ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Follow this link to the Rocks!</a></h3>
 
     </div>
-<h3> THink you can find a better Rockelganger? ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Follow this link to the Rocks!</a></h3>
-
-    <br /><br /><br /><br /><br />
-        <canvas></canvas>
+ <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
+    <canvas></canvas>
     </div>
 
     <script type="text/javascript">

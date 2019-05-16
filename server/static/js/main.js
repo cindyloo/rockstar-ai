@@ -44,6 +44,7 @@ $.ajax({
    contentType: false,
 }).done(function(respond){
         load_new_selfie();
+    $(".showFirst").show();
         clear_rocks();
         load_new_matches();
         load_new_rock();
@@ -91,6 +92,7 @@ function about_page() {
             });
         }
 $(".reveal").hide();
+$(".showFirst").hide();
 $("#showVideo").hide();
 
 snapshotButton.onclick = function() {
