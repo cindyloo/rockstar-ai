@@ -12,7 +12,7 @@ This project from MIT's Civic Media serves a few purposes:
 
 Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town. He gathered them over 50 years and in fact started up a museum showcasing these rocks of humanity. As he has since passed away, his daughter runs the [museum](http://www006.upp.so-net.ne.jp/chinseki/index-ex.html). There is something very human about seeing faces in organic as well as inorganic material. This capability is something fairly difficult to replicate in machine learning algorithms.
 
-Let us see how well or poorly we can train a model to see faces! We'll go for the lower-hanging approach first:
+Let us see how well or poorly we can train a model to see all different sizes, colors and shapes of faces! We'll go for the lower-hanging approach first:
 
 A light weight face recognition implementation using a pre-trained facenet model. Most of the code is taken from David Sandberg's  [facenet](https://github.com/davidsandberg/facenet) repository.
 
