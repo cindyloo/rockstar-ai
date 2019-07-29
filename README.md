@@ -2,15 +2,24 @@
 
 <img src="https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/spock_rock.png" />
 
-This project from MIT's Civic Media serves a few purposes:
+RockStar AI is a speculative social media platform in which identity is not connected to one's physical face but rather to one's own "Rockelganger" or "spirit rock." Since most facial recognition systems are trained solely on humans faces (and sometimes cats), rock faces -or any other heterogenous set of images - cannot be detected, identified nor tracked. Exposing the rigidity of facial detection and recognition softwares, its dependence on specific training sets and the now pervasive identification and surveillance of individuals should provoke great concern. The digital world depends on conforming behaviors and static principles, and we should be cautious of reductive representation, especially when that representation is of ourselves.
+
+Humans have an innate ability to see faces in organic as well as inorganic material. This capability is something fairly difficult to replicate in machine learning algorithms. In this way, I expose the constraints with training sets utilized by machine learning algorithms by illustrating how close (or not) CycleGans and style transfers can get to matching human faces to something as diverse and disparate as rocks. 
+
+The training set is sourced from a museum outside of Tokyo called "The Museum of Rocks that Look Like Faces." 
+
+" Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town. He gathered them over 50 years and in fact started up a museum showcasing these rocks of humanity. As he has since passed away, his daughter runs the [museum](http://www006.upp.so-net.ne.jp/chinseki/index-ex.html). 
+This project serves as both a reminder and a warning for our desire to systematize the natural world and what goes missing in that pursuit. Can we emulate Shozo Hayama-san's vision? Should we even try?
+
+
+
+As such, this project from MIT's Civic Media serves a few purposes:
 
 1) To provoke discussion and evaluation between human pattern-matching capability to that of machine-learning algorithms regarding facial detection and recognition capabilities.
 
 2) To work towards a dataset and model that can approximate the human capability to see faces in non-human and inorganic objects.
 
 3) To provide a speculative social media platform in which identity is not connected to one's physical face as much as it is to a "Rockelganger." In fact, a side benefit is the 'identity-scrambling' capability of the Rockelganger. Since facial recognition systems are trained solely on humans faces (and sometimes [cats](https://www.pyimagesearch.com/2016/06/20/detecting-cats-in-images-with-opencv/)), rock faces cannot be tracked.
-
-Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town. He gathered them over 50 years and in fact started up a museum showcasing these rocks of humanity. As he has since passed away, his daughter runs the [museum](http://www006.upp.so-net.ne.jp/chinseki/index-ex.html). There is something very human about seeing faces in organic as well as inorganic material. This capability is something fairly difficult to replicate in machine learning algorithms.
 
 Let us see how well or poorly we can train a model to see all different sizes, colors and shapes of faces! We'll go for the lower-hanging approach first:
 
