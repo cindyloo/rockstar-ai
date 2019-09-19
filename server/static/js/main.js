@@ -88,13 +88,22 @@ function load_new_rock() {
             });
         }
 
-        function load_new_matches() {
+function load_new_matches() {
             $.ajax({
                 url: 'get_match',
             }).done(function (data) {
                 console.log(data)
                 //load_new_rock();
                 $("#match").attr("src", data);
+            });
+        }
+function update_suggestions(input) {
+            $.ajax({
+                url: 'write_suggestions',
+                data: input,
+            }).done(function (data) {
+                console.log(data)
+                //load_new_rock();
             });
         }
 function about_page() {
@@ -119,6 +128,21 @@ snapshotButton.onclick = function() {
   // also save this ?
   call_server(dataURL);
 };
+
+
+userTag.onclick = function(e) {
+  // canvas.className = filterSelect.value;
+  var userSuggestion = { 'suggestion' : $("#saveUserChoice").val() };
+    $.ajax({
+                url: 'write_suggestions',
+        dataType : 'json',
+    data : userSuggestion,
+            }).done(function (data) {
+                console.log(data)
+                //load_new_rock();
+            });
+}
+
 
 placeholder.onclick = function() {
   // canvas.className = filterSelect.value;

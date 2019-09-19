@@ -4,6 +4,7 @@
 <head>
 <title>Rockstar AI</title>
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
@@ -11,7 +12,21 @@
 <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/js/main.js" async></script>
-
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.cmprod.media.mit.edu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '18']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
     <base target="_blank">
 
     <style>
@@ -105,7 +120,8 @@
 
         <h3>Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness, is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
         <br /><br /><br /><br />
-        <h3> Think you can find a better <italic>Rockelganger</italic>? ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Here's the link to the Rocks!</a> and follow the menu instructions above </h3>
+        <h3> Disagree? Who do you think this rock looks like instead?</h3><input id="saveUserChoice" /><button id="userTag" class="reveal">Save My Choice</button>
+            <h3></h3><italic>Rockelganger</italic>? ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Here's the link to the Rocks!</a> and follow the menu instructions above </h3>
 
     </div>
     <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />

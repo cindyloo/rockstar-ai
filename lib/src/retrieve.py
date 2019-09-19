@@ -141,8 +141,12 @@ def align_face(img,pnet, rnet, onet):
 def identify_person(image_vector, feature_array, k=9):
     top_k_ind = np.argsort([np.linalg.norm(image_vector-pred_row) for ith_row, pred_row in enumerate(feature_array.values())])[:k]
     result = list(feature_array.keys())[top_k_ind[0]]
+    if len(top_k_ind) > 1:
+        result2 = list(feature_array.keys())[top_k_ind[1]]
+    if len(top_k_ind) > 2:
+        result3 = list(feature_array.keys())[top_k_ind[2]]
     acc = np.linalg.norm(image_vector-list(feature_array.values())[top_k_ind[0]]) #hack splurt
-    return result, acc
+    return result, acc, result2, result3
 
 
 def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
@@ -191,8 +195,10 @@ def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
                         images = load_img(image, False, False, image_size)
                         feed_dict = { images_placeholder:images, phase_train_placeholder:False }
                         feature_vector = sess.run(embeddings, feed_dict=feed_dict)
-                        result, accuracy = identify_person(feature_vector, feature_array,16)
+                        result, accuracy, result2, result3 = identify_person(feature_vector, feature_array,16)
                         print(result)
+                        print("runner up " + result2)
+                        print("second runner up " + result3)
                         print(result.split("/")[2])
                         print("accuracy ", accuracy)
 

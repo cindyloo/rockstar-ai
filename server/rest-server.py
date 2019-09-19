@@ -13,6 +13,7 @@ import sys
 import random
 import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+import datetime
 
 from server import app
 from tensorflow.python.platform import gfile
@@ -47,10 +48,13 @@ accuracy_eval = 0.0
 #                                                                          						        
 #                                                                                                                              
 #==============================================================================================================================
-with open('./lib/src/extracted_dict.pickle','rb') as f:
+PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
+print(PROJECT_HOME)
+
+with open('{}/../lib/src/extracted_dict.pickle'.format(PROJECT_HOME),'rb') as f:
 	feature_array = pickle.load(f)
 
-model_exp = './lib/src/ckpt/20180408-102900'
+model_exp = '{}/../lib/src/ckpt/20180408-102900'.format(PROJECT_HOME)
 graph_fr = tf.Graph()
 sess_fr = tf.Session(graph=graph_fr)
 
@@ -78,18 +82,19 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ['.png']
 
-PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
+
 UPLOAD_FOLDER = '{}/'.format(PROJECT_HOME)
+DOWNLOAD_FOLDER = 'rocks_copy';
 # route http posts to this method
 #@app.route('/send_receive_img', methods=['POST'])
 def send_receive_img():
 	img = request.files['current_image']
 
 	if img:
-		filename = "current_image.jpg"
+		filename = "current_image-{}.jpg".format(datetime.datetime.now())
 		img.save(os.path.join(UPLOAD_FOLDER, filename))
 		print("saving ")
-		return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
+		return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True), filename
 
 
 @app.route('/return_img')
@@ -109,6 +114,30 @@ def get_accuracy():
 	global accuracy_eval
 	return '{}'.format(accuracy_eval * 100)
 
+@app.route('/write_suggestions')
+def write_suggestion():
+	#check input
+	print(request.args.get('suggestion'))
+	input = request.args.get('suggestion')
+	suggestions = open("suggestionbox.log", "a")
+	global closest_match_rock
+	print(input + 'for \n' + closest_match_rock)
+	if re.match('^[a-zA-Z0-9_]+$', input):
+		suggestions.write(input + ' for ' + closest_match_rock + '\n')
+
+
+
+@app.route('/tag_suggestions')
+def tag_suggestion():
+	#check input
+	print(request.args.get('suggestion'))
+	input = request.args.get('suggestion')
+	rock_suggestions = open("rockbox.log", "a")
+	global random_rock
+	print(input + 'for \n' + random_rock)
+	if re.match('^[a-zA-Z0-9_]+$', input):
+		rock_suggestions.write(input + ' for ' + random_rock + '\n')
+
 @app.route('/rock_it')
 def rock_it():
 	print("in rock it")
@@ -127,8 +156,10 @@ def rock_it():
 
 @app.route('/facerecognitionLive', methods=['GET', 'POST'])
 def face_det():
-	current_img = send_receive_img()
-	print("received image")
+	global current_img
+	response, current_img = send_receive_img()
+	#if response is ok, continue
+	print("received image {}".format(current_img))
 	closest_match, accuracy = retrieve.recognize_face(sess_fr,pnet, rnet, onet,feature_array, current_img)
 	print("now save match" )
 	closest_match = "/".join(closest_match.split('/')[8:])
@@ -140,6 +171,12 @@ def face_det():
 	rock_it()
 	# set_data() # I don't think this does anything. filename is still default "nothing"
 	return closest_match_filename
+
+@app.route("/pet_rocks")
+def rock_spirit():
+	# get random rock images here and send down?
+	return render_template("pet_rocks.html")
+
 
 @app.route("/about")
 def about():
