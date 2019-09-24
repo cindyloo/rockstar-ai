@@ -174,6 +174,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
     if current_image:
         #ret, frame = cap.read()
         print(current_image)
+        print(PROJECT_HOME)
         image_path = '{}/{}'.format(PROJECT_HOME,current_image)
         cv_image = cv2.imread(image_path, 0)
         gray = cv2.cvtColor(cv_image, 0)
