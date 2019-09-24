@@ -52,8 +52,10 @@ import pickle
 #face_cascade = cv2.CascadeClassifier('out/face/haarcascade_frontalface_default.xml')
 #parser = argparse.ArgumentParser()
 
-PROJECT_HOME = os.sys.path[0] #not safe
-print(PROJECT_HOME)
+PROJECT_HOME = ''
+#print(PROJECT_HOME)
+#PROJECT_HOME = os.sys.path[0] #not safe
+#print(PROJECT_HOME)
 
 args = {
     "lfw_batch_size": 100,
