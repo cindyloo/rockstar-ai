@@ -76,12 +76,11 @@ def set_data():
 @app.route('/get_cropped')
 def get_cropped():
 	print("in get cropped")
-	return "/images/cropped.png"
+	return "./images/cropped_{}.png".format(current_img)
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ['.png']
-
 
 UPLOAD_FOLDER = '{}/'.format(PROJECT_HOME)
 DOWNLOAD_FOLDER = 'rocks_copy';
@@ -91,7 +90,7 @@ def send_receive_img():
 	img = request.files['current_image']
 
 	if img:
-		filename = "current_image-{}.jpg".format(datetime.datetime.now())
+		filename = "current_image-{}.jpg".format(datetime.datetime.now()).replace("/","-").replace(" ", "")
 		img.save(os.path.join(UPLOAD_FOLDER, filename))
 		print("saving ")
 		return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True), filename

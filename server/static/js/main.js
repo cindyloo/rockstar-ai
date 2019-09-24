@@ -65,8 +65,9 @@ function load_new_selfie() {
             $.ajax({
                 url: 'get_cropped',
             }).done(function (data) {
+                data= data.replace(" ", "")
                 console.log(data)
-                $("#cropped").attr("src", "/images/cropped.png?" + Date());
+                $("#cropped").attr("src", data);
             });
         }
 

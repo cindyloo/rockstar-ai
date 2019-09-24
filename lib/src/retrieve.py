@@ -51,7 +51,10 @@ from scipy.spatial.distance import cosine
 import pickle
 #face_cascade = cv2.CascadeClassifier('out/face/haarcascade_frontalface_default.xml')
 #parser = argparse.ArgumentParser()
-    
+
+PROJECT_HOME = os.sys.path[0] #not safe
+print(PROJECT_HOME)
+
 args = {
     "lfw_batch_size": 100,
     "image_size": 160,
@@ -75,7 +78,7 @@ args = {
 #
 # args = parser.parse_args()
 
-def align_face(img,pnet, rnet, onet):
+def align_face(img,pnet, rnet, onet, image_filename):
 
     minsize = 20 # minimum size of face
     threshold = [ 0.6, 0.7, 0.7 ]  # three steps's threshold
@@ -132,7 +135,7 @@ def align_face(img,pnet, rnet, onet):
             bb[3] = np.minimum(det[3]+args["margin"]/2, img_size[0])
             cropped = img[bb[1]:bb[3],bb[0]:bb[2],:]
             scaled = misc.imresize(cropped, (args["image_size"], args["image_size"]), interp='bilinear')
-            misc.imsave("./server/static/images/cropped.png", scaled)
+            misc.imsave("{}/static/images/cropped_{}.png".format(PROJECT_HOME, image_filename), scaled)
             faces.append(scaled)
             bboxes.append(bb)
         return True,faces,bboxes
@@ -171,7 +174,8 @@ def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
     if current_image:
         #ret, frame = cap.read()
         print(current_image)
-        cv_image = cv2.imread('./server/current_image.jpg', 0)
+        image_path = '{}/{}'.format(PROJECT_HOME,current_image)
+        cv_image = cv2.imread(image_path, 0)
         gray = cv2.cvtColor(cv_image, 0)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -181,7 +185,7 @@ def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
 
         if(gray.size > 0):
             print(gray.size)
-            response, faces,bboxs = align_face(gray,pnet, rnet, onet)
+            response, faces,bboxs = align_face(gray,pnet, rnet, onet, current_image)
             print("align_face " + str(response))
 
             #cv2.imshow('img', gray) - in align we save the image so we don't need to see it here
