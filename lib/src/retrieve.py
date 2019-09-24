@@ -56,8 +56,8 @@ PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 print(PROJECT_HOME)
 #PROJECT_HOME = os.sys.path[0] #not safe
 #print(PROJECT_HOME)
-IMAGE_FOLDER = '{}/../../server/static/images/'.format(os.path.dirname(os.path.realpath(__file__)))
-
+SERVER_FOLDER = '{}/../../server'.format(os.path.dirname(os.path.realpath(__file__)))
+IMAGE_FOLDER = '{}/static/images/'.format(SERVER_FOLDER)
 args = {
     "lfw_batch_size": 100,
     "image_size": 160,
@@ -176,9 +176,8 @@ def recognize_face(sess,pnet, rnet, onet,feature_array, current_image):
 
     if current_image:
         #ret, frame = cap.read()
-        print(current_image)
-        print(PROJECT_HOME)
-        image_path = '{}/{}'.format(PROJECT_HOME,current_image)
+        image_path = '{}/{}'.format(SERVER_FOLDER,current_image)
+        print(image_path)
         cv_image = cv2.imread(image_path, 0)
         gray = cv2.cvtColor(cv_image, 0)
 
