@@ -56,7 +56,7 @@ PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 print(PROJECT_HOME)
 #PROJECT_HOME = os.sys.path[0] #not safe
 #print(PROJECT_HOME)
-IMAGE_FOLDER = 'static/images/'
+IMAGE_FOLDER = '{}/../../server/static/images/'.format(os.path.dirname(os.path.realpath(__file__)))
 
 args = {
     "lfw_batch_size": 100,
