@@ -50,7 +50,7 @@ accuracy_eval = 0.0
 #==============================================================================================================================
 PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 print(PROJECT_HOME)
-IMAGE_FOLDER = 'static/images/'
+IMAGE_FOLDER = '/images'
 
 with open('{}/../lib/src/extracted_dict.pickle'.format(PROJECT_HOME),'rb') as f:
 	feature_array = pickle.load(f)
