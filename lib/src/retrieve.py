@@ -52,10 +52,11 @@ import pickle
 #face_cascade = cv2.CascadeClassifier('out/face/haarcascade_frontalface_default.xml')
 #parser = argparse.ArgumentParser()
 
-PROJECT_HOME = ''
-#print(PROJECT_HOME)
+PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
+print(PROJECT_HOME)
 #PROJECT_HOME = os.sys.path[0] #not safe
 #print(PROJECT_HOME)
+IMAGE_FOLDER = 'static/images/'
 
 args = {
     "lfw_batch_size": 100,
@@ -137,7 +138,7 @@ def align_face(img,pnet, rnet, onet, image_filename):
             bb[3] = np.minimum(det[3]+args["margin"]/2, img_size[0])
             cropped = img[bb[1]:bb[3],bb[0]:bb[2],:]
             scaled = misc.imresize(cropped, (args["image_size"], args["image_size"]), interp='bilinear')
-            misc.imsave("{}/static/images/cropped_{}.png".format(PROJECT_HOME, image_filename), scaled)
+            misc.imsave("{}/cropped_{}.png".format(IMAGE_FOLDER, image_filename), scaled)
             faces.append(scaled)
             bboxes.append(bb)
         return True,faces,bboxes

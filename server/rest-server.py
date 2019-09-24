@@ -50,6 +50,7 @@ accuracy_eval = 0.0
 #==============================================================================================================================
 PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 print(PROJECT_HOME)
+IMAGE_FOLDER = 'static/images/'
 
 with open('{}/../lib/src/extracted_dict.pickle'.format(PROJECT_HOME),'rb') as f:
 	feature_array = pickle.load(f)
@@ -76,7 +77,7 @@ def set_data():
 @app.route('/get_cropped')
 def get_cropped():
 	print("in get cropped")
-	return "./images/cropped_{}.png".format(current_img)
+	return "{}/cropped_{}.png".format(IMAGE_FOLDER,current_img)
 
 def allowed_file(filename):
     return '.' in filename and \
