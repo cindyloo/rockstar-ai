@@ -132,7 +132,7 @@ def write_suggestion():
 	print(input + 'for \n' + closest_match_rock)
 	if re.match('^[a-zA-Z0-9_]+$', input):
 		suggestions.write(input + ' for ' + closest_match_rock + '\n')
-
+	return None
 
 
 @app.route('/tag_suggestions')
