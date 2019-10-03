@@ -33,7 +33,7 @@ for(var i = 0; i < blobBin.length; i++) {
 }
 var file=new Blob([new Uint8Array(array)], {type: 'image/png'});
 
-
+// begin by calling primary function, facerecognitionLive
 var formdata = new FormData();
 formdata.append("current_image", file);
 $.ajax({
@@ -43,8 +43,8 @@ $.ajax({
    processData: false,
    contentType: false,
 }).done(function(respond){
-        load_new_selfie();
-    $(".showFirst").show();
+    load_new_selfie();
+    $(".showFirst").show(); // show camera, button
         clear_rocks();
         load_new_matches();
         load_new_rock();
@@ -58,67 +58,70 @@ $.ajax({
     });
 }
 
+$(".reveal").hide();
+$(".showFirst").hide();
+$("#showVideo").hide();
+$("body").css("cursor", "default");
+$("#snapshot:hover").css("cursor", "default");
+
 function clear_rocks() {
     $(".reveal").hide();
 }
 function load_new_selfie() {
-            $.ajax({
-                url: 'get_cropped',
-            }).done(function (data) {
-                data= data.replace(" ", "")
-                console.log(data)
-                $("#cropped").attr("src", data);
-            });
-        }
+    $.ajax({
+        url: 'get_cropped',
+    }).done(function (data) {
+        data= data.replace(" ", "")
+        console.log(data)
+        $("#cropped").attr("src", data);
+    });
+}
 
 function load_new_accuracy() {
-            $.ajax({
-                url: 'get_accuracy',
-            }).done(function (data) {
-                console.log(data);
-                $("#accuracy").text(data);
-            });
-        }
+    $.ajax({
+        url: 'get_accuracy',
+    }).done(function (data) {
+        console.log(data);
+        $("#accuracy").text(data);
+    });
+}
 
 function load_new_rock() {
-            $.ajax({
-                url: 'rock_it',
-            }).done(function (data) {
-                console.log(data)
-                $("#rock").attr("src", data);
-            });
-        }
+    $.ajax({
+        url: 'rock_it',
+    }).done(function (data) {
+        console.log(data)
+        $("#rock").attr("src", data);
+    });
+}
 
 function load_new_matches() {
-            $.ajax({
-                url: 'get_match',
-            }).done(function (data) {
-                console.log(data)
-                //load_new_rock();
-                $("#match").attr("src", data);
-            });
-        }
+    $.ajax({
+        url: 'get_match',
+    }).done(function (data) {
+        console.log(data)
+        //load_new_rock();
+        $("#match").attr("src", data);
+    });
+}
 function update_suggestions(input) {
-            $.ajax({
-                url: 'write_suggestions',
-                data: input,
-            }).done(function (data) {
-                console.log(data)
-                //load_new_rock();
-            });
-        }
+    $.ajax({
+        url: 'write_suggestions',
+        data: input,
+    }).done(function (data) {
+        console.log(data)
+        //load_new_rock();
+    });
+}
 function about_page() {
-            $.ajax({
-                url: 'about',
-                type: "GET",
-            }).done(function (data) {
-            });
-        }
-$(".reveal").hide();
-$(".showFirst").hide();
-$("#showVideo").hide();
-  $("body").css("cursor", "default");
-  $("#snapshot:hover").css("cursor", "default");
+    $.ajax({
+        url: 'about',
+        type: "GET",
+    }).done(function (data) {
+    });
+
+}
+
 
 snapshotButton.onclick = function() {
   // canvas.className = filterSelect.value;
@@ -130,18 +133,29 @@ snapshotButton.onclick = function() {
   call_server(dataURL);
 };
 
+mailMeButton.onclick = function() {
+    var userEmail = $("#mailMe").val();
+    $.ajax({
+        url: 'send_email',
+        data: {'userEmail': userEmail}
+    }).done(function (data) {
+        console.log(data)
+        //load_new_rock();
+    });
+};
+
 
 userTag.onclick = function(e) {
   // canvas.className = filterSelect.value;
   var userSuggestion = { 'suggestion' : $("#saveUserChoice").val() };
     $.ajax({
-                url: 'write_suggestions',
+        url: 'write_suggestions',
         dataType : 'json',
-    data : userSuggestion,
-            }).done(function (data) {
-                console.log(data)
-                //load_new_rock();
-            });
+        data : userSuggestion,
+    }).done(function (data) {
+        console.log(data)
+        //load_new_rock();
+    });
 }
 
 

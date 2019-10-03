@@ -30,6 +30,9 @@
     <base target="_blank">
 
     <style>
+        body {
+            font-size: 30px;
+        }
         #snapshot {
             float: right;
             position: absolute;
@@ -37,20 +40,21 @@
             margin-top: 380px;
             border: 5px solid red;
         }
-        input, button {
+        button {
             padding: 10px;
             margin: 10px;
             font-family: "Helvetica";
             font-size: 23px;
+            border-radius: 6px;
+            background-color: lightgray;
+            border: 1px solid gray;
+            padding-bottom: 5px;
         }
         .navbar {
             margin-bottom: 20px;
             background-color: lightyellow;
         }
-        img {
-            padding: 10px;
-            border: 3px solid gray;
-        }
+
         .container {
             max-width: 1800px;
         }
@@ -62,6 +66,26 @@
             vertical-align: middle;
             text-align:center;
         }
+        #snapshot, #mailMeButton {
+            border: 3px solid red;
+        }
+
+        .intersection {
+            height: 350px;
+            background-color: lightyellow;
+            color: darkgray;
+        }
+
+        .borderDiv {
+            padding: 5px;
+            height: 400px;
+            background-color: lightgray;
+        }
+        img {
+            padding: 10px;
+            border: 3px solid gray;
+
+        }
 
     </style>
 </head>
@@ -71,10 +95,11 @@
 
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-              <a href="./"><img style="float:left;margin:10px;" src="/images/rockstar-ai_logo.png"  width="150"></img>
-                  <img style="float:left;margin:10px;" src="/images/rockstarai.jpg"  width="150"></img></a>
+      <a href="./">
+          <img style="float:left;margin:10px;" src="/images/rockstar-ai_logo.png"  width="150" height="150"></img>
+          <img style="float:left;margin:10px;" src="/images/rockstarai.jpg"  width="150" height="150"></img></a>
       <h3 style="float:left;"> RockStar-ai</h3>
-        <img style="float:right;margin:50px;" src="/images/spock_rock.png"  width="300"></img>
+      <img style="float:right;margin:50px;" src="/images/spock_rock.png"  width="300"></img>
 
     <div class="navbar-header">
       <a href="./" class="navbar-brand">Rockstar</a>
@@ -106,23 +131,26 @@
     </div>
     <br>
     <br />
-    <div>
+    <div class="borderDiv row">
 
-        <img class="showFirst" id="cropped" src="/images/cropped.png"  width="250"></img>
-        <button class="showFirst" id="uncoverConnectionButton">Your RockStar is --></button>
-        <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="250"></img>
-        <button id="placeholder" class="reveal">Who matches </button>
-        <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="250"></img>
-    </div>
-    <br/><br/><br/>
+        <img class="showFirst" id="cropped" src="/images/cropped.png"  width="150" height="150"></img>
+        <button class="showFirst intersection" id="uncoverConnectionButton">Your RockStar is --></button>
+        <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="150" height="150"></img>
+        <button id="placeholder" class="reveal intersection">Who matches </button>
+        <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
+        <div class="reveal">
+            <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness, is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
+            <br />
+            <p class="reveal">I love it! Please send email me my Rockstar/Rockelganger/Pet Rock</p>
+            <input id="mailMe" class="reveal" value="your email" />
+            <button id="mailMeButton" class="reveal">Send</button>
 
-    <div id="results" class="reveal row">
-
-        <h3>Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness, is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
-        <br /><br /><br /><br />
-        <h3> Disagree? Who do you think this rock looks like instead?</h3><input id="saveUserChoice" /><button id="userTag" class="reveal">Save My Choice</button>
-            <h3></h3><italic>Rockelganger</italic>? ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Here's the link to the Rocks!</a> and follow the menu instructions above </h3>
-
+            <br />
+            <h3> Disagree? Who do you think this rock looks like instead?</h3><br />
+            <input id="saveUserChoice" />
+            <button id="userTag" class="reveal">Save My Choice</button>
+            Ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Here's the link to the Rocks!</a> and follow the menu instructions above </h3>
+        </div>
     </div>
     <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
     <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />

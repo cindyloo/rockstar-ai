@@ -28,6 +28,7 @@ from PIL import Image
 from io import BytesIO, StringIO
 import base64
 import re
+from mail_image import prepare_email
 
 app = Flask(__name__, static_url_path = "")
 
@@ -82,6 +83,13 @@ def get_cropped():
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ['.png']
+
+@app.route('/send_email')
+def send_email():
+    print(request.args.get('userEmail'))
+    input = request.args.get('userEmail')
+    global closest_match_rock
+    prepare_email(input, closest_match_rock)
 
 UPLOAD_FOLDER = '{}/'.format(PROJECT_HOME)
 DOWNLOAD_FOLDER = 'rocks_copy';
