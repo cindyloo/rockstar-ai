@@ -14,4 +14,3 @@ six
 gunicorn
 tqdm
 opencv-python
-smtplib
