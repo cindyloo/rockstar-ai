@@ -7,9 +7,11 @@ RockStar AI is a speculative social media platform in which identity is not conn
 Humans have an innate ability to see faces in organic as well as inorganic material. This capability is something fairly difficult to replicate in machine learning algorithms. In this way, I expose the constraints with training sets utilized by machine learning algorithms by illustrating how close (or not) CycleGans and style transfers can get to matching human faces to something as diverse and disparate as rocks. 
 
 The training set is sourced from a museum outside of Tokyo called "The Museum of Rocks that Look Like Faces." 
-<img src="https://github.com/cindyloo/rockstar-ai/rock_faces.jpg"
-" Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town. He gathered them over 50 years and in fact started up a museum showcasing these rocks of humanity. As he has since passed away, his daughter runs the [museum](http://www006.upp.so-net.ne.jp/chinseki/index-ex.html). 
-This project serves as both a reminder and a warning for our desire to systematize the natural world and what goes missing in that pursuit. Can we emulate Shozo Hayama-san's vision? Should we even try?
+<img src="https://github.com/cindyloo/rockstar-ai/blob/master/rock_faces.jpg" >
+
+" Once upon a time, there was a man named Shozo Hayama-san. He saw faces in many things, especially the rocks along the river in his town.  He loved these rocks and surrounded himself with them.  Over time he had many hundreds of these rock friends. When he passed away, his rocks stayed behind, as rocks usually do." 
+
+Shozo Hayam-san gathered these rocks over 50 years and in fact started up a museum showcasing these rocks of humanity. As he has since passed away, his daughter runs the museum. This project serves as both a reminder and a warning for our desire to systematize the natural world and what goes missing in that pursuit. Can we emulate Shozo Hayama-san's vision? Should we even try?
 
 
 
@@ -70,3 +72,6 @@ Additional notes:
 We will be pairing more humans to rocks and could use your help! With only 300 human-rock pairings, there isn't a whole lot of variability in the vector space. Please contact me!
 
 Thanks to Damien Henry at Google Arts for the suggestion for Part 1 of this approach: to create human-to-rock pairings with which to train the system
+
+
+LIVE AT http://www.rockstar-ai.com
