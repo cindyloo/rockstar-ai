@@ -43,12 +43,17 @@
         button {
             padding: 10px;
             margin: 10px;
-            font-family: "Helvetica";
+            font-family: Trebuchet MS, Helvetica, sans-serif;
             font-size: 23px;
             border-radius: 6px;
             background-color: lightgray;
             border: 1px solid gray;
             padding-bottom: 5px;
+        }
+        p .intersection {
+            background-color: gray;
+            border: none;
+            color: black;
         }
         .navbar {
             margin-bottom: 20px;
@@ -62,6 +67,9 @@
         h2 {
             font-size: 80px;
         }
+        h3 {
+            font-size: 30px;
+        }
         video {
             vertical-align: middle;
             text-align:center;
@@ -71,15 +79,24 @@
         }
 
         .intersection {
-            height: 350px;
-            background-color: lightyellow;
+            height: 500px;
+            background-image: linear-gradient(gray, white);
             color: darkgray;
+            border: none;
+            margin: 10px;
+        }
+        .intersection img {
+
+        }
+        .intersection-odd {
+            margin-top: 50px;
         }
 
         .borderDiv {
             padding: 5px;
-            height: 400px;
-            background-color: lightgray;
+            width: 70%;
+            height: 500px;
+            background-image: linear-gradient(gray, white);
         }
         img {
             padding: 10px;
@@ -98,7 +115,7 @@
       <a href="./">
           <img style="float:left;margin:10px;" src="/images/rockstar-ai_logo.png"  width="150" height="150"></img>
           <img style="float:left;margin:10px;" src="/images/rockstarai.jpg"  width="150" height="150"></img></a>
-      <h3 style="float:left;"> RockStar-ai</h3>
+      <img style="float:right;margin:50px;border:none" src="/images/rockstar_text.png"  width="300"></img>
       <img style="float:right;margin:50px;" src="/images/spock_rock.png"  width="300"></img>
 
     <div class="navbar-header">
@@ -133,22 +150,25 @@
     <br />
     <div class="borderDiv row">
 
-        <img class="showFirst" id="cropped" src="/images/cropped.png"  width="150" height="150"></img>
-        <button class="showFirst intersection" id="uncoverConnectionButton">Your RockStar is --></button>
-        <img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="150" height="150"></img>
-        <button id="placeholder" class="reveal intersection">Who matches </button>
-        <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
+        <div class="intersection"><img class="showFirst" id="cropped" src="/images/cropped.png"  width="150" height="150"></img></div>
+        <div class="intersection intersection-odd" ><button class="showFirst" id="uncoverConnectionButton">Your RockStar is --></button></div>
+        <div class="intersection"><img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="150" height="150"></img></div>
+        <div class="intersection intersection-odd" ><p id="placeholder" class="reveal intersection">Who matches </p></div>
+        <div>
+            <img class="reveal" style="position:absolute;border:none;transform: rotate(25deg);margin-left: 70px;" src="/images/rockstar_text.png"  width="300"></img>
+            <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
+        </div>
         <div class="reveal">
-            <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness, is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
+            <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness,<br /> is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
             <br />
             <p class="reveal">I love it! Please send email me my Rockstar/Rockelganger/Pet Rock</p>
             <input id="mailMe" class="reveal" value="your email" />
             <button id="mailMeButton" class="reveal">Send</button>
-
+            <br />
             <br />
             <h3> Disagree? Who do you think this rock looks like instead?</h3><br />
             <input id="saveUserChoice" />
-            <button id="userTag" class="reveal">Save My Choice</button>
+            <button id="userTag" class="reveal">Save My Choice</button><br />
             Ask to add or tag your own: <a href="https://drive.google.com/drive/folders/177RTXxlouApHy-3tDqsgIHhOJcM2fz7f">Here's the link to the Rocks!</a> and follow the menu instructions above </h3>
         </div>
     </div>

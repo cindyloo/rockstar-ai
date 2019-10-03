@@ -11,7 +11,7 @@ PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 print(PROJECT_HOME)
 #PROJECT_HOME = os.sys.path[0] #not safe
 #print(PROJECT_HOME)
-SERVER_FOLDER = '{}/../../server'.format(os.path.dirname(os.path.realpath(__file__)))
+SERVER_FOLDER = '{}/server'.format(os.path.dirname(os.path.realpath(__file__)))
 IMAGE_FOLDER = '{}/static/'.format(SERVER_FOLDER)
 
 def prepare_email(user_email, matched_images):
