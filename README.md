@@ -72,3 +72,6 @@ Additional notes:
 We will be pairing more humans to rocks and could use your help! With only 300 human-rock pairings, there isn't a whole lot of variability in the vector space. Please contact me!
 
 Thanks to Damien Henry at Google Arts for the suggestion for Part 1 of this approach: to create human-to-rock pairings with which to train the system
+
+
+LIVE AT http://www.rockstar-ai.com
