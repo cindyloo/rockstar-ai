@@ -18,12 +18,13 @@ def prepare_email(user_email, matched_images):
     # Create the container (outer) email message.
     msg = MIMEMultipart()
     msg['Subject'] = 'Your rockstar'
-    me = 'csbishop@media.mit.edu'
-    user = user_email
+    rockstar_email = 'rockstar.ai.rockelganger@gmail.com'
+    rockstar_pwd = 'Petrock1!'
+
     #TODO verify user_email
-    msg['From'] = me
-    msg['To'] = COMMASPACE.join(user)
-    msg.preamble = 'Your rockstar is amazing!'
+    msg['From'] = rockstar_email
+    msg['To'] = user_email
+    msg.preamble = 'You are a Rockstar!'
 
     # Assume we know that the image files are all in PNG format
     for file in [matched_images]:
@@ -35,6 +36,9 @@ def prepare_email(user_email, matched_images):
         msg.attach(img)
 
     # Send the email via our own SMTP server.
-    s = smtplib.SMTP('localhost')
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    s.ehlo()
+    s.starttls()
+    s.login(rockstar_email, rockstar_pwd)
     s.send_message(msg)
     s.quit()
