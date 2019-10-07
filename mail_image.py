@@ -3,6 +3,7 @@ import smtplib
 import os
 # Here are the email package modules we'll need
 from email.mime.image import MIMEImage
+from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 COMMASPACE = ', '
