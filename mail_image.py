@@ -17,15 +17,14 @@ IMAGE_FOLDER = '{}/static/'.format(SERVER_FOLDER)
 def prepare_email(user_email, matched_images):
     # Create the container (outer) email message.
     msg = MIMEMultipart()
-    msg['Subject'] = 'Your rockstar'
     rockstar_email = 'rockstar.ai.rockelganger@gmail.com'
     rockstar_pwd = 'Petrock1!'
 
     #TODO verify user_email
     msg['From'] = rockstar_email
     msg['To'] = user_email
-    msg['Subject'] = 'You are a Rockstar! Here"s your proof'
-
+    msg['Subject'] = "You are a Rockstar! Here's your proof"
+    from_text = MIMEText("Thanks, come rock out again at rockstar-ai.com!", 'plain')
     # Assume we know that the image files are all in PNG format
     for file in [matched_images]:
         # Open the files in binary mode.  Let the MIMEImage class automatically
@@ -39,6 +38,7 @@ def prepare_email(user_email, matched_images):
     with open(rockstar_file, 'rb') as fp:
         logo = MIMEImage(fp.read())
     msg.attach(logo)
+    msg.attach(from_text)
 
     # Send the email via our own SMTP server.
     s = smtplib.SMTP('smtp.gmail.com', 587)
