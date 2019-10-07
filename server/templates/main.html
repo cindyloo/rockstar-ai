@@ -82,8 +82,8 @@
         }
         .intersection {
             height: 300px;
-            background-image: linear-gradient(gray, white);
-            color: lightgray;
+            background-image: linear-gradient(lightgray, white);
+            color: darkgray;
             border: none;
             margin: 10px;
         }
@@ -98,12 +98,16 @@
             padding: 5px;
             width: 70%;
             height: 300px;
-            background-image: linear-gradient(gray, white);
+            background-image: linear-gradient(lightyellow, white);
         }
         img {
             padding: 10px;
             border: 3px solid gray;
 
+        }
+        div.reveal {
+            background-color: lightyellow;
+            padding: 30px;
         }
 
     </style>
@@ -164,8 +168,9 @@
             <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
         </div>
         <div class="reveal">
+            <h2 class="reveal">Results</h2>
             <br />
-            <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness,<br /> is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
+            <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}</span> percent likeness,<br /> is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
             <br />
             <p class="reveal">I love it! Please send email me my Rockstar/Rockelganger/Pet Rock</p>
             <input id="mailMe" class="reveal" value="your email" />

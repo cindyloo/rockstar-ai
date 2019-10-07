@@ -24,7 +24,7 @@ def prepare_email(user_email, matched_images):
     #TODO verify user_email
     msg['From'] = rockstar_email
     msg['To'] = user_email
-    msg.preamble = 'You are a Rockstar!'
+    msg['Subject'] = 'You are a Rockstar! Here"s your proof'
 
     # Assume we know that the image files are all in PNG format
     for file in [matched_images]:
@@ -34,6 +34,11 @@ def prepare_email(user_email, matched_images):
         with open(file, 'rb') as fp:
             img = MIMEImage(fp.read())
         msg.attach(img)
+
+    rockstar_file = '{}/templates/rockstar_text.png'.format(SERVER_FOLDER, file)
+    with open(rockstar_file, 'rb') as fp:
+        logo = MIMEImage(fp.read())
+    msg.attach(logo)
 
     # Send the email via our own SMTP server.
     s = smtplib.SMTP('smtp.gmail.com', 587)
