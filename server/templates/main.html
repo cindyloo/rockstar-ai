@@ -35,10 +35,9 @@
         }
         #snapshot {
             float: right;
-            position: absolute;
-            margin-left: 700px;
-            margin-top: 380px;
             border: 5px solid red;
+            display: flex;
+            margin-top: 300px;
         }
         button {
             padding: 10px;
@@ -78,10 +77,13 @@
             border: 3px solid red;
         }
 
+        .flex {
+            display:flex;
+        }
         .intersection {
-            height: 500px;
+            height: 300px;
             background-image: linear-gradient(gray, white);
-            color: darkgray;
+            color: lightgray;
             border: none;
             margin: 10px;
         }
@@ -95,7 +97,7 @@
         .borderDiv {
             padding: 5px;
             width: 70%;
-            height: 500px;
+            height: 300px;
             background-image: linear-gradient(gray, white);
         }
         img {
@@ -115,7 +117,7 @@
       <a href="./">
           <img style="float:left;margin:10px;" src="/images/rockstar-ai_logo.png"  width="150" height="150"></img>
           <img style="float:left;margin:10px;" src="/images/rockstarai.jpg"  width="150" height="150"></img></a>
-      <img style="float:right;margin:50px;border:none" src="/images/rockstar_text.png"  width="300"></img>
+      <img style="float:right;margin:50px;border:none" src="/images/rockstar_text.png"  width="400"></img>
       <img style="float:right;margin:50px;" src="/images/spock_rock.png"  width="300"></img>
 
     <div class="navbar-header">
@@ -140,25 +142,29 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-5">
             <button id="showVideo">Show</button>
+            <video id="theVideo" playsinline autoplay width="500px"></video>
             <button id="snapshot"><h3>Rock Me!</h3></button>
-            <video id="theVideo" playsinline autoplay width="600px"></video>
         </div>
     </div>
     <br>
     <br />
     <div class="borderDiv row">
-
-        <div class="intersection"><img class="showFirst" id="cropped" src="/images/cropped.png"  width="150" height="150"></img></div>
-        <div class="intersection intersection-odd" ><button class="showFirst" id="uncoverConnectionButton">Your RockStar is --></button></div>
-        <div class="intersection"><img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="150" height="150"></img></div>
-        <div class="intersection intersection-odd" ><p id="placeholder" class="reveal intersection">Who matches </p></div>
-        <div>
+        <div class="flex">
+            <div class="intersection"><img class="showFirst" id="cropped" src="/images/cropped.png"  width="150" height="150"></img></div>
+            <div class="intersection intersection-odd" ><button class="showFirst" id="uncoverConnectionButton">Your RockStar is --></button></div>
+        </div>
+        <div class="flex">
+            <div class="intersection"><img id="match" class="reveal" src="/images/humans_mtcnn/{{ closest_match_filename}}" width="150" height="150"></img></div>
+            <div class="intersection intersection-odd" ><p id="placeholder" class="reveal intersection">Who matches </p></div>
+        </div>
+        <div class="flex">
             <img class="reveal" style="position:absolute;border:none;transform: rotate(25deg);margin-left: 70px;" src="/images/rockstar_text.png"  width="300"></img>
             <img id="rock" class="reveal" src="{{ closest_match_rock}}" width="300"></img>
         </div>
         <div class="reveal">
+            <br />
             <h3 class="reveal">Our experts suggest your Rockelganger, based on a <span id="accuracy">{{ accuracy_eval * 100 }}%</span> likeness,<br /> is <span id="match_name">{{" ".join(closest_match_filename.split("/")[0].split("_"))}}</span></h3>
             <br />
             <p class="reveal">I love it! Please send email me my Rockstar/Rockelganger/Pet Rock</p>
@@ -174,7 +180,7 @@
     </div>
     <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
     <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
-    <canvas></canvas>
+    <canvas style="width: 10px;"></canvas>
     </div>
 
 </body>

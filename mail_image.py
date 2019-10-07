@@ -40,5 +40,7 @@ def prepare_email(user_email, matched_images):
     s.ehlo()
     s.starttls()
     s.login(rockstar_email, rockstar_pwd)
-    s.send_message(msg)
+    s.sendmail(rockstar_email, [user_email], msg.as_string())
+    #s.send_message(msg)
     s.quit()
+    return "success"
