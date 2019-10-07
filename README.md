@@ -60,7 +60,7 @@ python -m align.align_dataset_mtcnn ../data/humans ../data/humans_mtcnn --image_
   python server/rest-server.py
 ```
   access the UI using url https://127.0.0.1:5000. It will a video feed, a Rock It! button and then the results appear. Once you click on it, automatically your primary camera will get turned on and start recognizing the faces.
- [RockStar AI implementation] <img src="https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/output_rockstar_overview.png"  width="600" height="400" /> 
+ [RockStar AI implementation] <img src="https://github.com/cindyloo/rockstar-ai/blob/master/server/static/images/output_rockstar_overview.png"  width="800" height="400" /> 
  
 References:
 
