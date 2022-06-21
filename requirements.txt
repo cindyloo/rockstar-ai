@@ -1,5 +1,5 @@
 tensorflow
-numpy==1.16.1
+numpy==1.22.0
 scipy
 scikit-learn
 opencv-python
